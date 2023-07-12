@@ -1,0 +1,47 @@
+﻿@model List<ProductionOperationsRecord>
+
+    
+    <head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<table>
+    <thead>
+        <tr>
+            <th>Kayıt No</th>
+            <th>Başlangıç</th>&nbsp;&nbsp;
+            <th>Bitiş</th>
+            <th>Toplam Süre (Saat)</th>
+            <th>Statü</th>
+            <th>Duruş Nedeni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model)
+        {
+            <tr>
+                <td>@record.RecordNo</td>
+                <td>@record.Start.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@record.Finish.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@record.TotalTime</td>
+                <td>@record.Status</td>
+                <td>@record.ReasonForStoppingTheOperation</td>
+            </tr>
+        }
+    </tbody>
+</table>
